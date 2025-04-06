@@ -14,10 +14,10 @@ GPIO.setmode(GPIO.BCM)  # Or GPIO.BOARD
 def Gpio_Setup(pin, mode):
     GPIO.setup(pin, mode)
 
-def Gpio_Output(pin, state):
+def Set_Gpio_Output(pin, state):
     GPIO.output(pin, state)
 
-def Gpio_Input(pin):
+def Get_Gpio_Input(pin):
     return GPIO.input(pin)
 
 def Gpio_Cleanup():

@@ -1,6 +1,6 @@
 from PyQt5.QtCore import Qt
 from PyQt5.QtWidgets import *
-from Lib_GpioModule import Gpio_Input
+from Lib_GpioModule import Get_Gpio_Input
 
 
 class GpioWidget(QWidget):
@@ -34,7 +34,7 @@ class GpioWidget(QWidget):
 
     def Update_LabelColor(self):
         # state = GPIO.input(self.channel)
-        state = Gpio_Input(self.channel)
+        state = Get_Gpio_Input(self.channel)
         if state:
             style = f"color: white; background-color: green;"
         else:

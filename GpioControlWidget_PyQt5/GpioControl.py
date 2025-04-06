@@ -1,4 +1,4 @@
-from Lib_GpioModule import Gpio_Setup, Gpio_Output, Gpio_Input, Gpio_Cleanup
+from Lib_GpioModule import Gpio_Setup, Set_Gpio_Output, Get_Gpio_Input, Gpio_Cleanup
 from Lib_GpioModule import GpioHI, GpioLO, GpioIN, GpioOUT
 from Lib_LogFile import LogFile
 
@@ -34,17 +34,17 @@ class GpioControl():
             self.Log(f"GpioControl Set_Gpio: {pin} not added")
             return
         if state:
-            Gpio_Output(pin, GpioHI)
+            Set_Gpio_Output(pin, GpioHI)
         else:
-            Gpio_Output(pin, GpioLO)
+            Set_Gpio_Output(pin, GpioLO)
 
     def Toggle_Gpio(self, pin: int):
-        state = Gpio_Input(pin)
-        Gpio_Output(pin, not state)
+        state = Get_Gpio_Input(pin)
+        Set_Gpio_Output(pin, not state)
         self.Log(f"Toggle_Gpio {pin} {int(state)} -> {int(not state)}")
 
     def Get_GpioState(self, pin: int):
-        state = Gpio_Input(pin)
+        state = Get_Gpio_Input(pin)
         return state
 
 
